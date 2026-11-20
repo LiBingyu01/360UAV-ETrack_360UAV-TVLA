@@ -37,11 +37,10 @@
     </div>
     <div class="hero-shade"></div>
     <div class="hero-copy wrap">
-      <div class="eyebrow light"><span class="status-dot"></span> FULL-SPHERICAL EMBODIED UAV TRACKING</div>
       <h1>Tracking<br>without <em>turning.</em></h1>
-      <div class="hero-bottom"><p>See in every direction.<br>Follow with three-dimensional motion.</p><a class="round-link" href="#benchmark" aria-label="Discover the benchmark">↓</a></div>
+      <div class="hero-bottom"><a class="round-link" href="#benchmark" aria-label="Discover the benchmark">↓</a></div>
     </div>
-    <div class="hero-caption"><span>360° × 180° PANORAMIC OBSERVATIONS</span><button id="wall-toggle" aria-label="Pause background videos">Ⅱ <span>Pause motion</span></button><span>RECORDED EXPERT DEMONSTRATIONS</span></div>
+    <button id="wall-toggle" class="wall-control" aria-label="Pause background videos" title="Pause background videos">Ⅱ</button>
   </section>
 
   <main id="main">
@@ -50,6 +49,7 @@
       <h2 id="paper-title">Towards 360° Embodied UAV<br class="desktop-only"> Tracking Without Turning</h2>
       <p class="authors">Bingyu Li<sup>1</sup> <span>·</span> Wu Du<sup>2</sup> <span>·</span> Zhiyuan Zhao<sup>3</sup> <span>·</span> Junyu Gao<sup>3,2</sup> <span>·</span> Xuelong Li<sup>3</sup></p>
       <p class="affiliations"><span><sup>1</sup> University of Science and Technology of China</span><span><sup>2</sup> Northwestern Polytechnical University</span><span><sup>3</sup> The Institute of Artificial Intelligence (TeleAI) of China Telecom</span></p>
+      <p class="author-contact" aria-label="Bingyu Li email addresses">libingyu0205@{<a href="mailto:libingyu0205@mail.ustc.edu.cn">mail.ustc.edu.cn</a>, <a href="mailto:libingyu0205@163.com">163.com</a>, <a href="mailto:libingyu0205@gmail.com">gmail.com</a>}</p>
       <div class="resource-links"><a class="button dark" href="assets/paper.pdf" target="_blank" rel="noopener">Paper <span>↗</span></a><a class="button outline" href="#explore">Explore the data <span>↓</span></a><a class="button outline" href="#resources">Resources <span>↗</span></a></div>
     </section>
 
@@ -79,9 +79,14 @@
 
     <section class="perception-section" id="perception"><div class="wrap">
       <div class="section-heading"><div><div class="section-kicker">03 / A CHANGE OF PERSPECTIVE</div><h2>Same moment.<br>A very different view.</h2></div><p class="section-description">A forward camera sees only part of the scene. Explore a recorded panorama to see how camera heading changes which objects are observable.</p></div>
-      <div class="view-comparison"><div class="erp-view"><div class="view-heading"><span>ERP / FULL-SPHERICAL</span><span>360° × 180°</span></div><div class="erp-frame"><img id="interactive-panorama" src="assets/panorama-b4.jpg" alt="Recorded B4 panoramic frame with a side-initialized pedestrian target"><div id="fov-window" aria-hidden="true"></div></div><p>Full azimuth coverage with a fixed heading.</p></div><div class="perspective-view"><div class="view-heading"><span>PERSPECTIVE / VIRTUAL CAMERA</span><span id="view-angle">90° FoV</span></div><canvas id="perspective-canvas" width="640" height="360" aria-label="Interactive perspective view reprojected from the same recorded panorama"></canvas><p id="canvas-hint">Drag to look around, or adjust the camera heading below.</p></div></div>
-      <div class="view-controls"><label for="heading">Camera heading <output id="heading-value" for="heading">0°</output></label><input id="heading" type="range" min="-180" max="180" value="0" step="1"><button id="reset-view" class="text-button">Reset to forward view ↺</button></div>
-      <div class="sphere-cta"><span>Step inside a moving panorama.</span><button class="button outline" id="open-sphere-secondary">Open interactive 360° video ↗</button></div><p class="small-note center">Interactive reprojection of one recorded frame. This illustrates observation coverage, not an active-steering policy or a closed-loop result.</p>
+      <div class="view-comparison"><div class="erp-view"><div class="view-heading"><span>ERP / FULL-SPHERICAL</span><span>360° × 180°</span></div><div class="erp-frame"><img id="interactive-panorama" src="assets/panorama-b4.jpg" alt="Recorded B4 panoramic frame with a side-initialized pedestrian target"><svg id="fov-window" viewBox="0 0 1000 500" aria-hidden="true"><path></path></svg></div><p>Full azimuth coverage with a fixed heading.</p></div><div class="perspective-view"><div class="view-heading"><span>PERSPECTIVE / VIRTUAL CAMERA</span><span id="view-angle">90° FoV</span></div><div class="perspective-stage"><canvas id="perspective-canvas" width="960" height="540" tabindex="0" aria-label="Interactive 360-degree view: drag in any direction, scroll or pinch to zoom, use arrow keys to look around"></canvas><button id="view-fullscreen" aria-label="Expand interactive panorama" title="Expand panorama">⛶</button></div><p id="canvas-hint">Drag in any direction · Scroll or pinch to zoom · Arrow keys to explore.</p></div></div>
+      <div class="view-controls">
+        <label for="heading">Heading <output id="heading-value" for="heading">0°</output><input id="heading" type="range" min="-180" max="180" value="0" step="1"></label>
+        <label for="view-pitch">Tilt <output id="pitch-value" for="view-pitch">0°</output><input id="view-pitch" type="range" min="-89" max="89" value="0" step="1"></label>
+        <label for="view-fov">Field of view <output id="fov-value" for="view-fov">90°</output><input id="view-fov" type="range" min="35" max="120" value="90" step="1"></label>
+        <button id="reset-view" class="text-button">Reset view ↺</button>
+      </div>
+      <div class="sphere-cta"><span>Step inside a moving panorama.</span><button class="button outline" id="open-sphere-secondary">Explore 360° video ↗</button></div><p class="small-note center">Interactive reprojection of one recorded frame. This illustrates observation coverage, not an active-steering policy or a closed-loop result.</p>
     </div></section>
 
     <section class="method-section wrap" id="method">

@@ -3,6 +3,31 @@
   const dialog=document.querySelector('#sphere-dialog'),canvas=document.querySelector('#sphere-canvas');
   const video=document.querySelector('#sphere-video'),selector=document.querySelector('#sphere-scene');
   const seek=document.querySelector('#sphere-seek'),speed=document.querySelector('#sphere-speed');
+  const shell=dialog.querySelector('.sphere-shell'),fullscreenButton=document.querySelector('#sphere-fullscreen');
+  function isFullscreen(){return document.fullscreenElement===shell||dialog.classList.contains('is-expanded');}
+  function updateFullscreenButton(){
+    const expanded=isFullscreen();
+    fullscreenButton.textContent=expanded?'Exit full screen ⛶':'Full screen ⛶';
+    fullscreenButton.setAttribute('aria-label',expanded?'Exit fullscreen 360-degree viewer':'Enter fullscreen 360-degree viewer');
+    fullscreenButton.setAttribute('aria-pressed',String(expanded));
+    fullscreenButton.title=expanded?'Exit full screen (Esc)':'Full screen (F)';
+    lastView='';
+  }
+  async function exitFullscreen(){
+    if(document.fullscreenElement===shell)await document.exitFullscreen();
+    dialog.classList.remove('is-expanded');updateFullscreenButton();
+  }
+  async function toggleFullscreen(){
+    if(isFullscreen()){await exitFullscreen();return;}
+    try{if(!shell.requestFullscreen)throw new Error('Fullscreen unavailable');await shell.requestFullscreen();}
+    catch{dialog.classList.add('is-expanded');}
+    updateFullscreenButton();
+  }
+  async function closeViewer(){await exitFullscreen();dialog.close();}
+  fullscreenButton.addEventListener('click',toggleFullscreen);
+  document.addEventListener('fullscreenchange',updateFullscreenButton);
+  dialog.addEventListener('cancel',event=>{if(isFullscreen()){event.preventDefault();exitFullscreen();}});
+
   let yaw=0,pitch=-18,fov=90,drag=null,raf=0,program,texture;
   let uploadedTime=-1,uploadedSource="",lastView="",lastControls=-Infinity;
   const gl=canvas.getContext('webgl',{antialias:false,alpha:false});
@@ -61,9 +86,9 @@
     dialog.showModal();document.body.classList.add('sphere-open');choose(selectedScene,main.currentTime);cancelAnimationFrame(raf);render();
   }
   for(const id of ['#open-sphere','#open-sphere-secondary'])document.querySelector(id).addEventListener('click',open);
-  document.querySelector('#sphere-close').addEventListener('click',()=>dialog.close());
-  dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
-  dialog.addEventListener('close',()=>{video.pause();cancelAnimationFrame(raf);document.body.classList.remove('sphere-open');});
+  document.querySelector('#sphere-close').addEventListener('click',closeViewer);
+  dialog.addEventListener('click',e=>{if(e.target===dialog)closeViewer();});
+  dialog.addEventListener('close',()=>{video.pause();cancelAnimationFrame(raf);document.body.classList.remove('sphere-open');exitFullscreen();});
   selector.addEventListener('change',()=>choose(selector.value));
   function next(delta){const i=scenes.findIndex(s=>s.id===selector.value);choose(scenes[(i+delta+scenes.length)%scenes.length].id);}
   document.querySelector('#sphere-prev').addEventListener('click',()=>next(-1));document.querySelector('#sphere-next').addEventListener('click',()=>next(1));
@@ -76,5 +101,5 @@
   canvas.addEventListener('pointermove',e=>{if(!drag)return;yaw=drag.yaw-(e.clientX-drag.x)*.16;pitch=drag.pitch+(e.clientY-drag.y)*.16;clamp();});
   for(const event of ['pointerup','pointercancel'])canvas.addEventListener(event,()=>drag=null);
   canvas.addEventListener('wheel',e=>{e.preventDefault();fov+=e.deltaY*.035;clamp();},{passive:false});
-  canvas.addEventListener('keydown',e=>{const actions={ArrowLeft:()=>yaw-=5,ArrowRight:()=>yaw+=5,ArrowUp:()=>pitch+=5,ArrowDown:()=>pitch-=5,'+':()=>fov-=5,'-':()=>fov+=5};if(actions[e.key]){e.preventDefault();actions[e.key]();clamp();}});
+  canvas.addEventListener('keydown',e=>{const actions={f:toggleFullscreen,F:toggleFullscreen,ArrowLeft:()=>yaw-=5,ArrowRight:()=>yaw+=5,ArrowUp:()=>pitch+=5,ArrowDown:()=>pitch-=5,'+':()=>fov-=5,'-':()=>fov+=5};if(actions[e.key]){e.preventDefault();actions[e.key]();clamp();}});
 })();

@@ -121,3 +121,14 @@ body{font-size:16px;line-height:1.6}
 /* Native decoded forward clips: no per-frame canvas readback. */
 .front-view-inset>video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#102b27;border-radius:0}
 .hero-composite{min-width:0;min-height:0}
+
+/* Fullscreen immersive viewer retains all playback controls and the forward inset. */
+.sphere-header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+#sphere-fullscreen{background:var(--mint);border-color:var(--mint);color:var(--ink);font-weight:700}
+#sphere-fullscreen:hover,#sphere-fullscreen:focus-visible{background:#dcffb0;border-color:#dcffb0}
+.sphere-shell:fullscreen{width:100vw;height:100dvh;max-width:none;max-height:none;background:#102b27;color:white;border:0;border-radius:0;overflow:hidden}
+#sphere-dialog.is-expanded{position:fixed;inset:0;margin:0;width:100vw;height:100dvh;max-width:none;max-height:none;border:0;border-radius:0}
+.sphere-shell:fullscreen .sphere-stage,#sphere-dialog.is-expanded .sphere-stage{min-height:0}
+.sphere-shell:fullscreen .sphere-stage>canvas,#sphere-dialog.is-expanded .sphere-stage>canvas{min-height:0}
+@media(max-width:600px){.sphere-header{flex-wrap:wrap;gap:10px}.sphere-header-actions{gap:8px;margin-left:auto}.sphere-header-actions button{padding:9px 11px}.sphere-header>div:first-child{flex:1 1 130px}}
+@media(max-height:600px){.sphere-shell:fullscreen .sphere-header,#sphere-dialog.is-expanded .sphere-header{padding:8px 16px;gap:10px}.sphere-shell:fullscreen .sphere-header>div>span,#sphere-dialog.is-expanded .sphere-header>div>span{display:none}.sphere-shell:fullscreen .sphere-note,#sphere-dialog.is-expanded .sphere-note{display:none}.sphere-shell:fullscreen .sphere-timeline,#sphere-dialog.is-expanded .sphere-timeline{padding-block:8px 4px}.sphere-shell:fullscreen .sphere-scene-controls,#sphere-dialog.is-expanded .sphere-scene-controls{padding-block:4px 8px}}

@@ -1,0 +1,12 @@
+{
+  "scene": "b1",
+  "frame": 496,
+  "time_s": 49.6,
+  "rule": "Frame at one third of the complete sequence; fixed by time, not prediction error",
+  "source_sequence": "seq_339_Task1-A1_Pano-3T_vehicle_Town05_10Hz_149s_1490f_salvaged",
+  "forecast_model": "pi05_history_target_aux_w2",
+  "checkpoint_step": 20000,
+  "lambda": 2,
+  "forecast_horizon_s": 1,
+  "kind": "offline expert-conditioned demonstration"
+}

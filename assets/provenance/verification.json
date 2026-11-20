@@ -1,0 +1,68 @@
+{
+  "sequences": 8,
+  "total_frames": 10530,
+  "total_seconds": 1053.0,
+  "native_parity_checks": 24,
+  "max_abs_native_action_difference_mps": 0,
+  "gpu_exclusivity_samples": 108,
+  "foreign_gpu_processes": 0,
+  "static_asset_http_checks": 18,
+  "videos": [
+    {
+      "id": "a1",
+      "frames": 1491,
+      "seconds": 149.1,
+      "video_sha256": "41860f2e19b6f2cac1000683585201f1df1ab8892ac469748a9b01cf8debc8ac",
+      "trajectory_sha256": "25a1215564a16ae13056e7711c7ac33bb47400f2a64ccc68a9516f5328fd3953"
+    },
+    {
+      "id": "a2",
+      "frames": 1559,
+      "seconds": 155.9,
+      "video_sha256": "f6a0ea09817d52a2527d2503ae31a1403826396d0cf79d84cc44bbedb507a281",
+      "trajectory_sha256": "9614c187bd975eddf57670a90d9c57ba6b55f5758b75fbce22469fa2ab3e17b7"
+    },
+    {
+      "id": "a3",
+      "frames": 1640,
+      "seconds": 164.0,
+      "video_sha256": "6c85e380317e06bbe699e686d00c37e85b9fa1bd753df5cc37e7fef08c7cc3fd",
+      "trajectory_sha256": "1af76270c33bd3c0191c813df36219309da7e92d7c4be42f49f6ce9b57c9148a"
+    },
+    {
+      "id": "a4",
+      "frames": 790,
+      "seconds": 79.0,
+      "video_sha256": "04320cee34c5063615ddec1349a23704453048d3fc5cf9051f84b791fd5d05a8",
+      "trajectory_sha256": "efd2bdbb45a2f9c56153031563d098b127b9aa4c1778c9b9348e1d6ebf9acb4a"
+    },
+    {
+      "id": "b1",
+      "frames": 1490,
+      "seconds": 149.0,
+      "video_sha256": "82788b9b10de416799b4a8bf84fa5efe30d19d44b974a53a1cba3aba8c967bb4",
+      "trajectory_sha256": "6600819fedc63a055e1c52fe7531eb61d887954aa5a779bfd25f608aae9445f9"
+    },
+    {
+      "id": "b2",
+      "frames": 1980,
+      "seconds": 198.0,
+      "video_sha256": "fb6bb73749a7674cad89c7a0adffd383bad47693d958fceb1a25a675d276d3cf",
+      "trajectory_sha256": "282e94e3247ed0ef102f2207a642e8145919163d0245c7b46b451d3da3993d7f"
+    },
+    {
+      "id": "b3",
+      "frames": 800,
+      "seconds": 80.0,
+      "video_sha256": "8f3f886558fcc750226c1b44818637ce9306916e50cbb4dcf5d6e56ecf2df2ac",
+      "trajectory_sha256": "39ef5392cac7ee48ffce4af03d851bd0771a06bc4d26ede9eb1bf4d9f38776d6"
+    },
+    {
+      "id": "b4",
+      "frames": 780,
+      "seconds": 78.0,
+      "video_sha256": "3a49deb88512ef7640aaf5244f426a0542b1cfd13651474576f56994a915e63c",
+      "trajectory_sha256": "e32eb4ade8b058f85b6fd87e63ec9b6e5d936e3bc7708ed297400d835b0620b9"
+    }
+  ]
+}

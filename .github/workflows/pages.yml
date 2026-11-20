@@ -1,0 +1,39 @@
+name: Deploy project website to GitHub Pages
+
+on:
+  push:
+    branches: [360UAV-ETrack_360UAV-TVLA_PAGE]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Verify website assets and file sizes
+        run: python3 tools/check_site.py
+      - name: Prepare static website
+        run: python3 tools/build_site.py
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4

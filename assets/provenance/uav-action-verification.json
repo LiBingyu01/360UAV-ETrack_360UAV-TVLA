@@ -1,0 +1,50 @@
+[
+  {
+    "scene": "a1",
+    "decode": "passed",
+    "integration_max_error_m": 4.99997615813208e-06,
+    "sha256": "41860f2e19b6f2cac1000683585201f1df1ab8892ac469748a9b01cf8debc8ac"
+  },
+  {
+    "scene": "a2",
+    "decode": "passed",
+    "integration_max_error_m": 4.9999618529916745e-06,
+    "sha256": "f6a0ea09817d52a2527d2503ae31a1403826396d0cf79d84cc44bbedb507a281"
+  },
+  {
+    "scene": "a3",
+    "decode": "passed",
+    "integration_max_error_m": 4.999980926401193e-06,
+    "sha256": "6c85e380317e06bbe699e686d00c37e85b9fa1bd753df5cc37e7fef08c7cc3fd"
+  },
+  {
+    "scene": "a4",
+    "decode": "passed",
+    "integration_max_error_m": 4.999414682391179e-06,
+    "sha256": "04320cee34c5063615ddec1349a23704453048d3fc5cf9051f84b791fd5d05a8"
+  },
+  {
+    "scene": "b1",
+    "decode": "passed",
+    "integration_max_error_m": 4.999884366981011e-06,
+    "sha256": "82788b9b10de416799b4a8bf84fa5efe30d19d44b974a53a1cba3aba8c967bb4"
+  },
+  {
+    "scene": "b2",
+    "decode": "passed",
+    "integration_max_error_m": 4.999961853102697e-06,
+    "sha256": "fb6bb73749a7674cad89c7a0adffd383bad47693d958fceb1a25a675d276d3cf"
+  },
+  {
+    "scene": "b3",
+    "decode": "passed",
+    "integration_max_error_m": 4.99994993208297e-06,
+    "sha256": "8f3f886558fcc750226c1b44818637ce9306916e50cbb4dcf5d6e56ecf2df2ac"
+  },
+  {
+    "scene": "b4",
+    "decode": "passed",
+    "integration_max_error_m": 4.999962672592138e-06,
+    "sha256": "3a49deb88512ef7640aaf5244f426a0542b1cfd13651474576f56994a915e63c"
+  }
+]

@@ -1,0 +1,152 @@
+{
+  "benchmark": "360UAV-ETrack",
+  "method": "360UAV-TVLA",
+  "paper_title": "Towards 360° Embodied UAV Tracking Without Turning",
+  "demonstration_sequences": 2652,
+  "train_sequences": 2110,
+  "validation_sequences": 542,
+  "erp_frames": 1733766,
+  "recorded_hours": 48.16,
+  "native_erp_resolution": [
+    1920,
+    960
+  ],
+  "recording_hz": 10,
+  "physics_hz": 30,
+  "weather_conditions": 13,
+  "demonstration_towns": [
+    "Town02",
+    "Town05",
+    "Town06",
+    "Town07",
+    "Town10HD"
+  ],
+  "evaluation_towns": [
+    "Town01",
+    "Town03",
+    "Town04"
+  ],
+  "evaluation_episodes": 150,
+  "task_I_episodes": 51,
+  "task_II_episodes": 99,
+  "initial_velocities": {
+    "zero": 75,
+    "target_matched_nonzero": 75
+  },
+  "tasks": [
+    {
+      "id": "a1",
+      "name": "FrontTrack",
+      "group": "I",
+      "description": "Follow a designated moving target while preserving the UAV’s initial heading, including when target motion changes its viewing direction.",
+      "town": "Town05",
+      "weather": "ClearNoon",
+      "sequences": 657,
+      "frames": 1491,
+      "fps": 10,
+      "duration_s": 149.1,
+      "source_sequence": "seq_336_Task1-A1_Pano-3T_vehicle_Town05_10Hz_149s_1491f_salvaged",
+      "split": "validation"
+    },
+    {
+      "id": "a2",
+      "name": "FrontUnderpass",
+      "group": "I",
+      "description": "Track a front-initialized target through an underpass, where geometry and clearance challenge persistent observation and control.",
+      "town": "Town05",
+      "weather": "ClearNoon",
+      "sequences": 211,
+      "frames": 1559,
+      "fps": 10,
+      "duration_s": 155.9,
+      "source_sequence": "seq_172_Task1-A2_Pano-3T_emergency_Town05_10Hz_1559f",
+      "split": "validation"
+    },
+    {
+      "id": "a3",
+      "name": "FrontApproach",
+      "group": "I",
+      "description": "Approach and follow a designated target from a frontal configuration, coordinating distance regulation with three-dimensional motion.",
+      "town": "Town05",
+      "weather": "WetCloudyNoon",
+      "sequences": 214,
+      "frames": 1640,
+      "fps": 10,
+      "duration_s": 164.0,
+      "source_sequence": "seq_034_Task1-A4_Pano-3T_pedestrian_front_Town05_10Hz_1640f",
+      "split": "validation"
+    },
+    {
+      "id": "a4",
+      "name": "FrontSelection",
+      "group": "I",
+      "description": "Preserve the identity of a front-initialized target among visually related distractors using the designated-instance reference.",
+      "town": "Town05",
+      "weather": "CloudyNoon",
+      "sequences": 59,
+      "frames": 790,
+      "fps": 10,
+      "duration_s": 79.0,
+      "source_sequence": "seq_101_TaskB3_Pano-3T_DifferentAppearance_human_Town05_10Hz_79s_790f",
+      "split": "validation"
+    },
+    {
+      "id": "b1",
+      "name": "NonFrontTrack",
+      "group": "II",
+      "description": "Acquire and follow a target outside the initial frontal view, using full-spherical observations instead of yaw search.",
+      "town": "Town05",
+      "weather": "ClearNoon",
+      "sequences": 801,
+      "frames": 1490,
+      "fps": 10,
+      "duration_s": 149.0,
+      "source_sequence": "seq_339_Task1-A1_Pano-3T_vehicle_Town05_10Hz_149s_1490f_salvaged",
+      "split": "validation"
+    },
+    {
+      "id": "b2",
+      "name": "DroneTrack",
+      "group": "II",
+      "description": "Acquire and track an aerial target across full-spherical viewing directions, extending beyond ground-target following.",
+      "town": "Town05",
+      "weather": "MidRainyNoon",
+      "sequences": 122,
+      "frames": 1980,
+      "fps": 10,
+      "duration_s": 198.0,
+      "source_sequence": "seq_110_Task1-B2_Pano-3T_uav_front_top_Town05_10Hz_1980f",
+      "split": "validation"
+    },
+    {
+      "id": "b3",
+      "name": "NonFrontApproach",
+      "group": "II",
+      "description": "Approach a target from a non-frontal configuration and transition into sustained following.",
+      "town": "Town05",
+      "weather": "SoftRainNoon",
+      "sequences": 370,
+      "frames": 800,
+      "fps": 10,
+      "duration_s": 80.0,
+      "source_sequence": "seq_034_Task1-A4_Pano-3T_pedestrian_front-oblique_Town05_10Hz_800f",
+      "split": "validation"
+    },
+    {
+      "id": "b4",
+      "name": "NonFrontSelection",
+      "group": "II",
+      "description": "Identify and follow a non-front-initialized target among distractors, combining acquisition with instance-specific tracking.",
+      "town": "Town05",
+      "weather": "WetNoon",
+      "sequences": 218,
+      "frames": 780,
+      "fps": 10,
+      "duration_s": 78.0,
+      "source_sequence": "seq_912_TaskB3_Pano-3T_DifferentAppearance_vehicle_Town05_10Hz_78s_780f",
+      "split": "validation"
+    }
+  ],
+  "source": "User-supplied manuscript and dataset category directory inventory, 2026-11-20",
+  "release_status": "Public dataset/code release URLs not supplied"
+}

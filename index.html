@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="360UAV-ETrack: a full-spherical embodied UAV tracking benchmark. Explore eight tasks and 360UAV-TVLA, a panoramic VLA policy for tracking without turning.">
+  <meta name="theme-color" content="#102b27">
+  <meta property="og:title" content="Towards 360° Embodied UAV Tracking Without Turning">
+  <meta property="og:description" content="360UAV-ETrack · 2,652 demonstrations · 1.73M observations · 8 tracking tasks">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/figures/overview.webp">
+  <title>360UAV-ETrack — Tracking Without Turning</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/scenes.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="trajectories.js" defer></script>
+  <script src="sphere.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="360UAV-ETrack home"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15"/><ellipse cx="18" cy="18" rx="7" ry="15"/><path d="M3 18h30M6 9c8 5 16 5 24 0M6 27c8-5 16-5 24 0"/></svg><span>360UAV<span class="brand-light">-ETrack</span></span></a>
+    <nav aria-label="Main navigation"><a href="#benchmark">Benchmark</a><a href="#explore">Explore</a><a href="#method">Method</a><a href="#results">Results</a></nav>
+    <a class="header-paper" href="assets/paper.pdf" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu <span>＋</span></button>
+  </header>
+
+  <section class="hero" id="top" aria-label="Panoramic expert demonstration video wall">
+    <div class="video-wall" aria-hidden="true">
+      <video data-scene="a1" autoplay muted loop playsinline preload="none"></video>
+      <video data-scene="a4" autoplay muted loop playsinline preload="none"></video>
+      <video data-scene="b2" autoplay muted loop playsinline preload="none"></video>
+      <video data-scene="b4" autoplay muted loop playsinline preload="none"></video>
+      <video data-scene="a2" autoplay muted loop playsinline preload="none"></video>
+      <video data-scene="b1" autoplay muted loop playsinline preload="none"></video>
+    </div>
+    <div class="hero-shade"></div>
+    <div class="hero-copy wrap">
+      <div class="eyebrow light"><span class="status-dot"></span> FULL-SPHERICAL EMBODIED UAV TRACKING</div>
+      <h1>Tracking<br>without <em>turning.</em></h1>
+      <div class="hero-bottom"><p>See in every direction.<br>Follow with three-dimensional motion.</p><a class="round-link" href="#benchmark" aria-label="Discover the benchmark">↓</a></div>
+    </div>
+    <div class="hero-caption"><span>360° × 180° PANORAMIC OBSERVATIONS</span><button id="wall-toggle" aria-label="Pause background videos">Ⅱ <span>Pause motion</span></button><span>RECORDED EXPERT DEMONSTRATIONS</span></div>
+  </section>
+
+  <main id="main">
+    <section class="paper-intro wrap" aria-labelledby="paper-title">
+      <div class="section-kicker">THE BENCHMARK & THE METHOD</div>
+      <h2 id="paper-title">Towards 360° Embodied UAV<br class="desktop-only"> Tracking Without Turning</h2>
+      <p class="authors">Bingyu Li<sup>1</sup> <span>·</span> Wu Du<sup>2</sup> <span>·</span> Zhiyuan Zhao<sup>3</sup> <span>·</span> Junyu Gao<sup>3,2</sup> <span>·</span> Xuelong Li<sup>3</sup></p>
+      <p class="affiliations"><span><sup>1</sup> University of Science and Technology of China</span><span><sup>2</sup> Northwestern Polytechnical University</span><span><sup>3</sup> The Institute of Artificial Intelligence (TeleAI) of China Telecom</span></p>
+      <div class="resource-links"><a class="button dark" href="assets/paper.pdf" target="_blank" rel="noopener">Paper <span>↗</span></a><a class="button outline" href="#explore">Explore the data <span>↓</span></a><a class="button outline" href="#resources">Resources <span>↗</span></a></div>
+    </section>
+
+    <section class="benchmark-section" id="benchmark">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-kicker">01 / 360UAV-ETRACK</div><h2>A world beyond<br>the forward view.</h2></div><p class="section-description">A simulation benchmark for following designated targets through three-dimensional translation, with a fixed UAV heading and full-spherical visual observations.</p></div>
+        <div class="stat-grid"><div><strong>2,652</strong><span>demonstration sequences</span></div><div><strong>1.73<span>M</span></strong><span>synchronized observations</span></div><div><strong>48.16<span>h</span></strong><span>recorded at 10 Hz</span></div><div><strong>8</strong><span>tracking tasks</span></div></div>
+        <div class="benchmark-details"><span>1920 × 960 native ERP</span><span>13 weather conditions</span><span>5 demonstration towns</span><span>150 held-out evaluation episodes</span></div>
+        <figure class="paper-figure overview-figure"><a href="assets/figures/overview.pdf" target="_blank" rel="noopener" aria-label="Open benchmark overview figure at full size"><img src="assets/figures/overview.webp" alt="Paper overview showing the eight benchmark tasks, panoramic observations, dataset statistics, and 360UAV-TVLA framework" loading="lazy" width="1707" height="1014"></a><figcaption>One benchmark. Eight tasks. Synchronized perception, motion, and supervision.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="explore-section wrap" id="explore">
+      <div class="section-heading"><div><div class="section-kicker">02 / EXPLORE THE DATA</div><h2>Eight ways to<br>challenge a tracker.</h2></div><div class="section-description"><p>Front-initialized following meets omnidirectional acquisition, underpasses, approaching targets, and distractors.</p><p class="small-note">Complete long sequences, recorded at 10 Hz and played at 4× by default. Blue: predicted UAV motion over the next second. Green: target ground truth. Pink: the model’s one-second target forecast.</p></div></div>
+      <div class="task-filter" role="group" aria-label="Filter demonstration tasks"><button class="active" data-filter="all" aria-pressed="true">All eight tasks <span>08</span></button><button data-filter="I" aria-pressed="false">Task I <span>Front initialized</span></button><button data-filter="II" aria-pressed="false">Task II <span>Omnidirectional</span></button></div>
+      <div class="scene-player">
+        <div class="player-stage"><video id="scene-video" controls muted loop playsinline preload="metadata" aria-label="Selected expert demonstration"></video><div class="video-label"><span class="status-dot"></span> EXPERT DEMONSTRATION · ERP 360°</div><div class="video-color-legend" aria-label="Video overlay legend"><span class="legend-title">LEGEND</span><span><i class="legend-line uav-action" aria-hidden="true"></i>Predicted UAV motion · 1 s</span><span><i class="legend-box" aria-hidden="true"></i>Target box</span><span><i class="legend-line truth" aria-hidden="true"></i>True future · 1 s</span><span><i class="legend-line predicted" aria-hidden="true"></i>Predicted future · 1 s</span></div></div>
+        <aside class="scene-info" aria-live="polite"><div class="scene-top"><span id="scene-id" class="scene-id">A1</span><span id="scene-group" class="tag">TASK I</span></div><h3 id="scene-title">FrontTrack</h3><p id="scene-description"></p><dl><div><dt>Environment</dt><dd id="scene-town"></dd></div><div><dt>Weather</dt><dd id="scene-weather"></dd></div><div><dt>Control</dt><dd>XYZ velocity · fixed heading</dd></div><div><dt>Full sequence</dt><dd id="scene-duration">Loading…</dd></div></dl><p class="scene-footnote">Expert-observation replay with actual model forecasts. The blue path integrates the model’s next ten XYZ velocity commands (1 s).</p></aside>
+      </div>
+      <div class="playback-bar"><div class="playback-options"><label for="playback-speed">Playback</label><select id="playback-speed" aria-label="Playback speed"><option value="1">1×</option><option value="2">2×</option><option value="4" selected>4×</option><option value="8">8×</option></select><span id="scene-time">00:00 / 00:00</span></div><button class="button dark" id="open-sphere">Explore in 360° <span>⤢</span></button><a id="download-video" class="text-button" download>Full video ↓</a></div>
+      <div class="trajectory-heading"><div><span class="section-kicker">MOTION, FRAME BY FRAME</span><h3>Follow the route. See the forecast.</h3></div><div class="trajectory-legend"><span class="recorded-uav">Recorded UAV route</span><span class="uav">Predicted UAV motion · 1 s</span><span class="target">Recorded target route / true future</span><span class="prediction">Predicted target future · 1 s</span></div></div>
+      <div class="trajectory-grid"><figure><div class="plot-heading"><strong>Recorded trajectories</strong><span>World XY · meters</span></div><canvas id="route-canvas" aria-label="Synchronized top-down UAV and target trajectories"></canvas><figcaption>Gray: recorded UAV route. Blue: its predicted next-second motion at the current frame.</figcaption></figure><figure><div class="plot-heading"><strong>One-second target forecast</strong><span id="forecast-time">10 future positions · 10 Hz</span></div><canvas id="forecast-canvas" aria-label="Actual predicted and ground-truth target motion over the next second"></canvas><figcaption>Forward / right / up coordinates at the current UAV origin, in meters.</figcaption></figure></div>
+      <div class="trajectory-status"><p id="trajectory-status" role="status">Loading synchronized trajectory data…</p><div class="trajectory-downloads"><a id="download-trajectory-figure" class="text-button" target="_blank" rel="noopener">Trajectory figure ↗</a><a id="download-trajectory" class="text-button" download>Trajectory data ↓</a></div></div>
+      <p class="small-note forecast-disclosure">UAV paths integrate native ten-step XYZ velocity predictions at 0.1 s per step; target forecasts use the auxiliary head (π₀.₅, λ = 2, step 20000). In the video, the UAV path is displayed 2 m below the camera for readability, retaining its predicted XYZ geometry and scale. Future ground truth is used only for visualization. These are complete validation demonstrations, not closed-loop policy rollouts.</p>
+      <div class="scene-grid" id="scene-grid" aria-label="Choose a tracking task"></div>
+    </section>
+
+    <section class="perception-section" id="perception"><div class="wrap">
+      <div class="section-heading"><div><div class="section-kicker">03 / A CHANGE OF PERSPECTIVE</div><h2>Same moment.<br>A very different view.</h2></div><p class="section-description">A forward camera sees only part of the scene. Explore a recorded panorama to see how camera heading changes which objects are observable.</p></div>
+      <div class="view-comparison"><div class="erp-view"><div class="view-heading"><span>ERP / FULL-SPHERICAL</span><span>360° × 180°</span></div><div class="erp-frame"><img id="interactive-panorama" src="assets/panorama-b4.jpg" alt="Recorded B4 panoramic frame with a side-initialized pedestrian target"><div id="fov-window" aria-hidden="true"></div></div><p>Full azimuth coverage with a fixed heading.</p></div><div class="perspective-view"><div class="view-heading"><span>PERSPECTIVE / VIRTUAL CAMERA</span><span id="view-angle">90° FoV</span></div><canvas id="perspective-canvas" width="640" height="360" aria-label="Interactive perspective view reprojected from the same recorded panorama"></canvas><p id="canvas-hint">Drag to look around, or adjust the camera heading below.</p></div></div>
+      <div class="view-controls"><label for="heading">Camera heading <output id="heading-value" for="heading">0°</output></label><input id="heading" type="range" min="-180" max="180" value="0" step="1"><button id="reset-view" class="text-button">Reset to forward view ↺</button></div>
+      <div class="sphere-cta"><span>Step inside a moving panorama.</span><button class="button outline" id="open-sphere-secondary">Open interactive 360° video ↗</button></div><p class="small-note center">Interactive reprojection of one recorded frame. This illustrates observation coverage, not an active-steering policy or a closed-loop result.</p>
+    </div></section>
+
+    <section class="method-section wrap" id="method">
+      <div class="section-heading"><div><div class="section-kicker">04 / 360UAV-TVLA</div><h2>Remember the target.<br>Reason about motion.</h2></div><p class="section-description">A reference-conditioned vision–language–action framework that connects panoramic perception to three-dimensional velocity control.</p></div>
+      <div class="method-cards"><article><span class="component-number">01 / PVR</span><h3>Persistent visual referring</h3><p>A static visual reference from the initial panorama anchors the designated target’s identity across viewing directions and distractors.</p></article><article><span class="component-number">02 / CTM</span><h3>Compressed temporal memory</h3><p>Causal panoramic history supplies motion context, with each preceding frame compressed to 128 visual tokens.</p></article><article><span class="component-number">03 / GTS</span><h3>Geometry-aligned trajectory supervision</h3><p>A training-only head predicts future target positions in control-aligned coordinates, regularizing shared policy features.</p></article></div>
+      <figure class="paper-figure method-figure"><a href="assets/figures/method.pdf" target="_blank" rel="noopener" aria-label="Open method framework figure at full size"><img src="assets/figures/method.webp" alt="360UAV-TVLA architecture with persistent visual referring, compressed temporal memory, geometry-aligned trajectory supervision, and action decoding" width="1572" height="751" loading="lazy"></a><figcaption>At deployment, the policy executes the first predicted XYZ command and replans. The trajectory head is bypassed; online target states are not supplied to the policy.</figcaption></figure>
+      <div class="method-strip"><span>360° observation</span><span class="strip-arrow">→</span><span>Reference + causal memory</span><span class="strip-arrow">→</span><span>VLA policy</span><span class="strip-arrow">→</span><strong>(v<sub>x</sub>, v<sub>y</sub>, v<sub>z</sub>)</strong><span class="fixed-heading">Fixed heading ↗</span></div>
+    </section>
+
+    <section class="evaluation-section"><div class="wrap"><div class="section-heading"><div><div class="section-kicker">05 / EVALUATION</div><h2>Prediction is one thing.<br>Following is another.</h2></div><p class="section-description">Offline expert replay and online closed-loop tracking answer different questions. We report them separately.</p></div><div class="protocol-grid"><article><span class="protocol-index">OFFLINE</span><h3>Expert replay</h3><p>Recorded expert observations condition every prediction. Integrated velocity predictions are compared with the expert trajectory using ADE and distance compliance.</p></article><article><span class="protocol-index">ONLINE</span><h3>Closed-loop tracking</h3><p>Executed commands change subsequent observations. Frozen scenarios test acquisition and persistent following, including the effect of action latency.</p></article></div><div class="timing-protocols"><div><span>i</span><h4>Synchronous</h4><p>Pause simulation during inference.</p></div><div><span>ii</span><h4>End-to-end real time</h4><p>Include computation and external overhead.</p></div><div class="selected-protocol"><span>iii</span><h4>Model-compute delay</h4><p>Inject measured policy computation latency.</p><small>RESULTS REPORTED BELOW</small></div></div></div></section>
+
+    <section class="results-section wrap" id="results"><div class="section-heading"><div><div class="section-kicker">06 / BENCHMARK RESULTS</div><h2>Longer tracking.<br>Room to go further.</h2></div><p class="section-description">Across both π backbones, 360UAV-TVLA improves tracking duration over standard fine-tuning. Completing every episode remains challenging.</p></div>
+      <div class="result-highlights"><div><span>π₀ · NORMALIZED TRACKING DURATION</span><p>22.56<span>→</span><strong>35.28<span>%</span></strong></p></div><div><span>π₀.₅ · NORMALIZED TRACKING DURATION</span><p>25.68<span>→</span><strong>33.64<span>%</span></strong></p></div></div>
+      <div class="table-controls"><div role="group" aria-label="Results task"><button data-result="overall" class="active" aria-pressed="true">Overall</button><button data-result="taskI" aria-pressed="false">Task I</button><button data-result="taskII" aria-pressed="false">Task II</button></div><span id="results-count">150 evaluation episodes</span></div>
+      <div class="table-scroll"><table><caption class="visually-hidden">Online tracking results under the model-compute-delay protocol</caption><thead><tr><th scope="col">Method</th><th scope="col">ATF ↑ <small>frames</small></th><th scope="col">Normalized ATF ↑ <small>%</small></th><th scope="col">Success rate ↑ <small>%</small></th></tr></thead><tbody id="results-body"></tbody></table></div><p class="small-note">All values are from the supplied paper’s Table 2, protocol (iii). Normalized ATF averages the tracked fraction of each episode’s prescribed horizon. Success requires completing the horizon under the benchmark’s visibility and distance criteria.</p>
+      <div class="qualitative-grid"><figure><a href="assets/figures/forecasting.pdf" target="_blank" rel="noopener"><img src="assets/figures/forecasting.webp" loading="lazy" width="1867" height="687" alt="Paper examples of predicted and ground-truth future target trajectories for vehicle, pedestrian, and UAV targets"></a><figcaption><strong>Learning target motion.</strong> One-second target forecasts are inspected offline and never executed as control commands.</figcaption></figure><figure><a href="assets/figures/tracking.pdf" target="_blank" rel="noopener"><img src="assets/figures/tracking.webp" loading="lazy" width="1946" height="787" alt="Matched paper examples comparing baseline and final-method tracking over time"></a><figcaption><strong>Following in closed loop.</strong> Qualitative examples from the paper complement the aggregate evaluation.</figcaption></figure></div>
+    </section>
+
+    <section class="resources-section" id="resources"><div class="wrap"><div class="section-heading"><div><div class="section-kicker">07 / RESOURCES</div><h2>Explore. Evaluate.<br>Build what comes next.</h2></div><p class="section-description">Read the manuscript and explore the benchmark’s tasks, data structure, and evaluation setting.</p></div><div class="resource-grid"><a href="assets/paper.pdf" target="_blank" rel="noopener"><span>01 / MANUSCRIPT</span><h3>Read the paper ↗</h3><p>Full paper and supplementary implementation details.</p></a><a href="assets/dataset-overview.json" download><span>02 / DATASET OVERVIEW</span><h3>Dataset facts ↓</h3><p>Task names, category counts, splits, and recording specifications.</p></a><a href="assets/figures/overview.pdf" download><span>03 / VISUAL OVERVIEW</span><h3>Benchmark figure ↓</h3><p>High-resolution overview from the supplied manuscript.</p></a></div><div class="release-note"><span class="status-dot"></span><p><strong>Code & dataset release.</strong> Public download links will be added when the release is available. The examples on this page are complete validation demonstration sequences.</p></div>
+      <div class="visual-resource"><div><span class="section-kicker">VISUALIZATION PACK</span><p>Eight complete routes, per-frame native forecasts, and print-ready trajectory figures.</p></div><a class="button dark" href="assets/trajectory-figures-and-data.zip" download>Get figures & data <span>↓</span></a></div>
+      <div class="citation-heading"><h3>Citation</h3><button id="copy-citation" class="text-button">Copy BibTeX ⧉</button><span id="copy-status" role="status"></span></div><pre id="citation">@misc{li360uavetrack,
+  title  = {Towards 360{\textdegree} Embodied UAV Tracking Without Turning},
+  author = {Li, Bingyu and Du, Wu and Zhao, Zhiyuan and Gao, Junyu and Li, Xuelong},
+  note   = {Project manuscript}
+}</pre>
+    </div></section>
+  </main>
+  <footer class="wrap"><a class="brand footer-brand" href="#top">360UAV<span class="brand-light">-ETrack</span></a><p>Full-spherical perception. Fixed-heading control.</p><a href="#top">Back to top ↑</a></footer>
+  <noscript><p class="noscript-notice">Enable JavaScript to switch task videos, explore the panorama, and view the results table. The paper and figures remain available.</p></noscript>
+  <dialog id="sphere-dialog" aria-labelledby="sphere-title"><div class="sphere-shell"><header class="sphere-header"><div><span>360° IMMERSIVE EXPLORER</span><h2 id="sphere-title">A1 · FrontTrack</h2></div><button id="sphere-close" aria-label="Close 360-degree viewer">Close ×</button></header><div class="sphere-stage"><canvas id="sphere-canvas" aria-label="Interactive panoramic video: drag to look around, scroll to change field of view"></canvas><video id="sphere-video" muted playsinline preload="none" hidden></video><div class="sphere-instructions">Drag to look around · Scroll to zoom</div><div class="video-color-legend sphere-color-legend" aria-label="Panoramic video overlay legend"><span class="legend-title">LEGEND</span><span><i class="legend-line uav-action" aria-hidden="true"></i>Predicted UAV motion · 1 s</span><span><i class="legend-box" aria-hidden="true"></i>Target box</span><span><i class="legend-line truth" aria-hidden="true"></i>True future · 1 s</span><span><i class="legend-line predicted" aria-hidden="true"></i>Predicted future · 1 s</span></div><div class="sphere-view-readout" id="sphere-orientation">0° / 0°</div><p id="sphere-fallback" hidden>360° rendering is unavailable in this browser. Use the full ERP video below.</p></div><div class="sphere-timeline"><button id="sphere-play" aria-label="Pause panoramic video">Ⅱ</button><label class="visually-hidden" for="sphere-seek">Video position</label><input id="sphere-seek" type="range" min="0" max="1000" value="0"><output id="sphere-time">00:00 / 00:00</output><label class="visually-hidden" for="sphere-speed">Panoramic video playback speed</label><select id="sphere-speed"><option value="1">1×</option><option value="2">2×</option><option value="4" selected>4×</option><option value="8">8×</option></select></div><div class="sphere-scene-controls"><button id="sphere-prev" aria-label="Previous panorama">←</button><label class="visually-hidden" for="sphere-scene">Choose panoramic scene</label><select id="sphere-scene"></select><button id="sphere-next" aria-label="Next panorama">→</button><button id="sphere-reset">Reset view ↺</button></div><p class="sphere-note">Full recorded sequence · Blue: predicted UAV motion · 1 s · Green: target ground truth · Pink: native model forecast · Viewing direction is interactive; the recorded UAV heading stays fixed.</p></div></dialog>
+</body>
+</html>

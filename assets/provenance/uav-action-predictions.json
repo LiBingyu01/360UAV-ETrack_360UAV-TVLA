@@ -1,0 +1,170 @@
+[
+  {
+    "scene": "a1",
+    "frames": 1491,
+    "source_action_shape": [
+      1491,
+      10,
+      3
+    ],
+    "dt_s": 0.1,
+    "prediction_horizon_s": 1,
+    "max_native_speed_mps": 4.0004316134881615,
+    "uses_future_observations": false,
+    "uses_past_uav_positions": false,
+    "display_offset_m": [
+      0,
+      0,
+      -2.0
+    ],
+    "sha256": "41860f2e19b6f2cac1000683585201f1df1ab8892ac469748a9b01cf8debc8ac",
+    "original_video_sha256": "d7fb8f47601bdae73b05f227f30a840847626af2e9b6421d17e69abaf037531c"
+  },
+  {
+    "scene": "a2",
+    "frames": 1559,
+    "source_action_shape": [
+      1559,
+      10,
+      3
+    ],
+    "dt_s": 0.1,
+    "prediction_horizon_s": 1,
+    "max_native_speed_mps": 4.694947030504341,
+    "uses_future_observations": false,
+    "uses_past_uav_positions": false,
+    "display_offset_m": [
+      0,
+      0,
+      -2.0
+    ],
+    "sha256": "f6a0ea09817d52a2527d2503ae31a1403826396d0cf79d84cc44bbedb507a281",
+    "original_video_sha256": "1b73c7120857b9f236715f9cf33ced894d66493f94d24f0ce567c528e2a9684c"
+  },
+  {
+    "scene": "a3",
+    "frames": 1640,
+    "source_action_shape": [
+      1640,
+      10,
+      3
+    ],
+    "dt_s": 0.1,
+    "prediction_horizon_s": 1,
+    "max_native_speed_mps": 7.534125830764033,
+    "uses_future_observations": false,
+    "uses_past_uav_positions": false,
+    "display_offset_m": [
+      0,
+      0,
+      -2.0
+    ],
+    "sha256": "6c85e380317e06bbe699e686d00c37e85b9fa1bd753df5cc37e7fef08c7cc3fd",
+    "original_video_sha256": "9dfa209f7659f95d8f0d40abbd3c595c721ef7429fc6428b40d7ef183430ee4f"
+  },
+  {
+    "scene": "a4",
+    "frames": 790,
+    "source_action_shape": [
+      790,
+      10,
+      3
+    ],
+    "dt_s": 0.1,
+    "prediction_horizon_s": 1,
+    "max_native_speed_mps": 2.990141710342702,
+    "uses_future_observations": false,
+    "uses_past_uav_positions": false,
+    "display_offset_m": [
+      0,
+      0,
+      -2.0
+    ],
+    "sha256": "04320cee34c5063615ddec1349a23704453048d3fc5cf9051f84b791fd5d05a8",
+    "original_video_sha256": "c770dc97ac174b58c98dcc000e57edff69fd2b635159aa2fa9b2afdffd291284"
+  },
+  {
+    "scene": "b1",
+    "frames": 1490,
+    "source_action_shape": [
+      1490,
+      10,
+      3
+    ],
+    "dt_s": 0.1,
+    "prediction_horizon_s": 1,
+    "max_native_speed_mps": 3.0299306207860877,
+    "uses_future_observations": false,
+    "uses_past_uav_positions": false,
+    "display_offset_m": [
+      0,
+      0,
+      -2.0
+    ],
+    "sha256": "82788b9b10de416799b4a8bf84fa5efe30d19d44b974a53a1cba3aba8c967bb4",
+    "original_video_sha256": "e3408c5a3559ab0051ca341047a2263dc1486862f00b6fbc4ccaa2d5c9ce5bfc"
+  },
+  {
+    "scene": "b2",
+    "frames": 1980,
+    "source_action_shape": [
+      1980,
+      10,
+      3
+    ],
+    "dt_s": 0.1,
+    "prediction_horizon_s": 1,
+    "max_native_speed_mps": 6.20739419864196,
+    "uses_future_observations": false,
+    "uses_past_uav_positions": false,
+    "display_offset_m": [
+      0,
+      0,
+      -2.0
+    ],
+    "sha256": "fb6bb73749a7674cad89c7a0adffd383bad47693d958fceb1a25a675d276d3cf",
+    "original_video_sha256": "f44390be5d031d8114368fb4a7e68ded019bfd5014e30d19a1f21e4a7f3f19b4"
+  },
+  {
+    "scene": "b3",
+    "frames": 800,
+    "source_action_shape": [
+      800,
+      10,
+      3
+    ],
+    "dt_s": 0.1,
+    "prediction_horizon_s": 1,
+    "max_native_speed_mps": 8.578995507753561,
+    "uses_future_observations": false,
+    "uses_past_uav_positions": false,
+    "display_offset_m": [
+      0,
+      0,
+      -2.0
+    ],
+    "sha256": "8f3f886558fcc750226c1b44818637ce9306916e50cbb4dcf5d6e56ecf2df2ac",
+    "original_video_sha256": "aad902a8cb430f5e174c814ef28d9b4c503ea0ea25134953a9df7b94de13b9b5"
+  },
+  {
+    "scene": "b4",
+    "frames": 780,
+    "source_action_shape": [
+      780,
+      10,
+      3
+    ],
+    "dt_s": 0.1,
+    "prediction_horizon_s": 1,
+    "max_native_speed_mps": 3.963003058935115,
+    "uses_future_observations": false,
+    "uses_past_uav_positions": false,
+    "display_offset_m": [
+      0,
+      0,
+      -2.0
+    ],
+    "sha256": "3a49deb88512ef7640aaf5244f426a0542b1cfd13651474576f56994a915e63c",
+    "original_video_sha256": "13e4eea4ffffe58ca576740eaace4eac065fad361f2b1a833d24bd6a226aa2e3"
+  }
+]

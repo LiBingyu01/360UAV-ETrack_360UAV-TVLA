@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "scenes": 8,
+  "frames": 10530,
+  "public_site_bytes": 507178466,
+  "largest_file": "assets/videos/a1.mp4",
+  "largest_file_bytes": 81955077,
+  "html_asset_references": 21,
+  "repository_subpath_http_checks": 24,
+  "javascript_syntax_checks": 4,
+  "workflow": "official static Pages actions; execution requires target repository Pages settings",
+  "published": false
+}

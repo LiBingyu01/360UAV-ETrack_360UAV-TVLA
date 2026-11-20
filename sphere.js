@@ -28,6 +28,11 @@
   document.addEventListener('fullscreenchange',updateFullscreenButton);
   dialog.addEventListener('cancel',event=>{if(isFullscreen()){event.preventDefault();exitFullscreen();}});
 
+  // The cover's typography is independent; compact viewer controls favor the image.
+  const compactViewer=window.matchMedia('(max-width: 800px), (max-height: 600px)');
+  const legendPanel=dialog.querySelector('.sphere-legend-panel');
+  function fitViewerControls(){legendPanel.open=!compactViewer.matches;}
+  compactViewer.addEventListener('change',fitViewerControls);fitViewerControls();
   let yaw=0,pitch=-18,fov=90,drag=null,raf=0,program,texture;
   let uploadedTime=-1,uploadedSource="",lastView="",lastControls=-Infinity;
   const gl=canvas.getContext('webgl',{antialias:false,alpha:false});

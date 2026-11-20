@@ -22,7 +22,7 @@ const wallObserver = new IntersectionObserver(entries => {
 
 for (const video of $$('.video-wall video')) {
   video.poster = `assets/posters/${video.dataset.scene}.jpg`;
-  video.src = `assets/videos/hero/${video.dataset.scene}.mp4`;
+  video.src = `assets/videos/hero-composited/${video.dataset.scene}.mp4`;
   video.playbackRate = 4;
   mediaError(video);
   wallObserver.observe(video);

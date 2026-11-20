@@ -1,0 +1,128 @@
+{
+  "horizontal_fov_degrees": 90,
+  "vertical_fov_degrees": 58.715507,
+  "heading_degrees": 0,
+  "pitch_degrees": 0,
+  "frame_rate_hz": 10,
+  "source": "same rendered ERP media, with unchanged frame count and timestamps",
+  "scenes": [
+    {
+      "id": "a1",
+      "source": "assets/videos/a1.mp4",
+      "forward": "assets/videos/front/a1.mp4",
+      "frames": 1491,
+      "duration_s": 149.1,
+      "bytes": 4437552,
+      "width": 480,
+      "height": 270
+    },
+    {
+      "id": "a2",
+      "source": "assets/videos/a2.mp4",
+      "forward": "assets/videos/front/a2.mp4",
+      "frames": 1559,
+      "duration_s": 155.9,
+      "bytes": 3440260,
+      "width": 480,
+      "height": 270
+    },
+    {
+      "id": "a3",
+      "source": "assets/videos/a3.mp4",
+      "forward": "assets/videos/front/a3.mp4",
+      "frames": 1640,
+      "duration_s": 164.0,
+      "bytes": 4171898,
+      "width": 480,
+      "height": 270
+    },
+    {
+      "id": "a4",
+      "source": "assets/videos/a4.mp4",
+      "forward": "assets/videos/front/a4.mp4",
+      "frames": 790,
+      "duration_s": 79.0,
+      "bytes": 2046390,
+      "width": 480,
+      "height": 270
+    },
+    {
+      "id": "b1",
+      "source": "assets/videos/b1.mp4",
+      "forward": "assets/videos/front/b1.mp4",
+      "frames": 1490,
+      "duration_s": 149.0,
+      "bytes": 4693617,
+      "width": 480,
+      "height": 270
+    },
+    {
+      "id": "b2",
+      "source": "assets/videos/b2.mp4",
+      "forward": "assets/videos/front/b2.mp4",
+      "frames": 1980,
+      "duration_s": 198.0,
+      "bytes": 3887136,
+      "width": 480,
+      "height": 270
+    },
+    {
+      "id": "b3",
+      "source": "assets/videos/b3.mp4",
+      "forward": "assets/videos/front/b3.mp4",
+      "frames": 800,
+      "duration_s": 80.0,
+      "bytes": 2725286,
+      "width": 480,
+      "height": 270
+    },
+    {
+      "id": "b4",
+      "source": "assets/videos/b4.mp4",
+      "forward": "assets/videos/front/b4.mp4",
+      "frames": 780,
+      "duration_s": 78.0,
+      "bytes": 2727371,
+      "width": 480,
+      "height": 270
+    }
+  ],
+  "hero_composites": [
+    {
+      "id": "a1",
+      "path": "assets/videos/hero-composited/a1.mp4",
+      "frames": 320,
+      "bytes": 1507822
+    },
+    {
+      "id": "a4",
+      "path": "assets/videos/hero-composited/a4.mp4",
+      "frames": 320,
+      "bytes": 2209822
+    },
+    {
+      "id": "b2",
+      "path": "assets/videos/hero-composited/b2.mp4",
+      "frames": 320,
+      "bytes": 1349122
+    },
+    {
+      "id": "b4",
+      "path": "assets/videos/hero-composited/b4.mp4",
+      "frames": 320,
+      "bytes": 1552871
+    },
+    {
+      "id": "a2",
+      "path": "assets/videos/hero-composited/a2.mp4",
+      "frames": 320,
+      "bytes": 749140
+    },
+    {
+      "id": "b1",
+      "path": "assets/videos/hero-composited/b1.mp4",
+      "frames": 320,
+      "bytes": 1375994
+    }
+  ]
+}

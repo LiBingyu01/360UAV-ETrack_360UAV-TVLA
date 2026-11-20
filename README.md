@@ -18,3 +18,10 @@ The package includes all eight complete demonstration videos, native one-second 
 Videos are expert-observation replay, not closed-loop policy success cases. The blue UAV path integrates each current native ten-step velocity chunk at 0.1 s intervals. A constant downward display offset makes the path visible below the camera; numerical predictions retain their original frame. See `assets/provenance/README.md` for model, selection and verification details.
 
 This is a deployment package. It does not set a public release date, invent public code/dataset URLs, or claim venue acceptance. License terms for the manuscript and media have not been assigned by this package.
+
+
+### Forward-view playback
+
+Forward views are preprojected at 480 × 270 and 10 Hz, matching the source clips' frame counts and durations (`assets/front-view-manifest.json`). The main and immersive players use a native video inset, synchronized on playback, pause, seek and rate changes. Hidden insets pause automatically. The six opening videos contain the inset directly, retaining six decoder streams and avoiding per-frame browser projection or canvas readback.
+
+To regenerate these media, install FFmpeg with the `v360` filter and run `python tools/prepare_front_views.py`. `FFMPEG` and `FFPROBE` may point to explicit executables. Normal Pages deployment uses the included media and does not run FFmpeg.

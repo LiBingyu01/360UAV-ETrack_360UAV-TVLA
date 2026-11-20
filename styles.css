@@ -117,3 +117,7 @@ body{font-size:16px;line-height:1.6}
 .hero{height:100vh;height:100dvh;min-height:0;max-height:none}
 @media(max-height:600px){.hero-copy{bottom:64px}.hero h1{font-size:clamp(34px,12dvh,72px);margin-top:0;line-height:1.04}.hero-bottom{margin-top:16px}.hero .round-link{width:40px;height:40px;font-size:23px}.wall-control{bottom:14px}}
 @media(max-height:420px){.site-header{top:12px;min-height:54px;padding-block:8px}.hero-copy{bottom:43px}.hero h1{font-size:clamp(28px,11dvh,46px)}.hero-bottom{margin-top:10px}.hero .round-link{width:32px;height:32px;font-size:20px}.wall-control{width:30px;height:30px;bottom:10px}}
+
+/* Native decoded forward clips: no per-frame canvas readback. */
+.front-view-inset>video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#102b27;border-radius:0}
+.hero-composite{min-width:0;min-height:0}

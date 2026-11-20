@@ -4,6 +4,7 @@
   const video=document.querySelector('#sphere-video'),selector=document.querySelector('#sphere-scene');
   const seek=document.querySelector('#sphere-seek'),speed=document.querySelector('#sphere-speed');
   let yaw=0,pitch=-18,fov=90,drag=null,raf=0,program,texture;
+  let uploadedTime=-1,uploadedSource="",lastView="",lastControls=-Infinity;
   const gl=canvas.getContext('webgl',{antialias:false,alpha:false});
   canvas.tabIndex=0;
   for(const s of scenes){const option=document.createElement('option');option.value=s.id;option.textContent=`${s.id.toUpperCase()} · ${s.name}`;selector.append(option);}
@@ -25,21 +26,30 @@
     texture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,texture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
     gl.uniform1i(gl.getUniformLocation(program,'u_video'),0);
   } else {canvas.hidden=true;video.hidden=false;video.controls=true;document.querySelector('#sphere-fallback').hidden=false;}
-  function render(){
+  function render(now=0){
     if(!dialog.open)return;
     if(gl&&video.readyState>=2){
       const box=canvas.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,1.5);
       const w=Math.max(1,Math.round(box.width*dpr)),h=Math.max(1,Math.round(box.height*dpr));
-      if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h);}
-      gl.bindTexture(gl.TEXTURE_2D,texture);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,video);
+      const resized=canvas.width!==w||canvas.height!==h;
+      if(resized){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h);}
+      // These clips are recorded at 10 Hz; reuse each decoded texture between frames.
+      const frameIndex=Math.floor(video.currentTime*10+0.0001);
+      const frameChanged=uploadedTime!==frameIndex||uploadedSource!==video.currentSrc;
+      if(frameChanged){gl.bindTexture(gl.TEXTURE_2D,texture);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,video);uploadedTime=frameIndex;uploadedSource=video.currentSrc;}
+      const viewKey=`${yaw}/${pitch}/${fov}`;
+      if(frameChanged||resized||lastView!==viewKey){lastView=viewKey;
       gl.uniform1f(gl.getUniformLocation(program,'u_aspect'),w/h);gl.uniform1f(gl.getUniformLocation(program,'u_yaw'),yaw*Math.PI/180);gl.uniform1f(gl.getUniformLocation(program,'u_pitch'),pitch*Math.PI/180);gl.uniform1f(gl.getUniformLocation(program,'u_fov'),fov*Math.PI/180);gl.drawArrays(gl.TRIANGLES,0,6);
+      }
     }
+    if(now-lastControls>=100){lastControls=now;
     document.querySelector('#sphere-orientation').textContent=`Heading ${Math.round(yaw)}° · Pitch ${Math.round(pitch)}° · FoV ${Math.round(fov)}°`;
     seek.value=String(video.duration?video.currentTime/video.duration*1000:0);
     document.querySelector('#sphere-time').textContent=`${clock(video.currentTime)} / ${clock(video.duration)}`;
+    }
     raf=requestAnimationFrame(render);
   }
-  function reset(){yaw=0;pitch=-18;fov=90;}
+  function reset(){yaw=0;pitch=-18;fov=90;lastView="";}
   function choose(id,time=0){
     const s=scenes.find(s=>s.id===id);if(!s)return;selector.value=id;reset();video.pause();video.poster=`assets/posters/${id}.jpg`;video.src=`assets/videos/${id}.mp4?v=uav-action1s-final`;video.load();video.playbackRate=Number(speed.value);
     if(time)video.addEventListener('loadedmetadata',()=>{video.currentTime=Math.min(time,video.duration-.1);},{once:true});

@@ -26,6 +26,16 @@ for scene in manifest:
     assert scene['uav_action_prediction_horizon_s']==1
 for key in ['a1','a4','b2','b4','a2','b1']:
     assert (ROOT/f'assets/videos/hero/{key}.mp4').is_file()
+forward=json.loads((ROOT/'assets/front-view-manifest.json').read_text(encoding='utf-8'))
+assert len(forward['scenes'])==8 and len(forward['hero_composites'])==6
+for scene in forward['scenes']:
+    assert (ROOT/scene['forward']).is_file()
+    assert (ROOT/f"assets/posters/front/{scene['id']}.jpg").is_file()
+    original=next(item for item in manifest if item['id']==scene['id'])
+    assert original['frames']==scene['frames'], 'Forward video frame mismatch'
+for scene in forward['hero_composites']:
+    assert (ROOT/scene['path']).is_file()
+
 files=[p for p in ROOT.rglob('*') if p.is_file() and not set(p.relative_to(ROOT).parts)&{'.git','_site'}]
 for p in files:assert p.stat().st_size<100*1024**2,'File exceeds regular Git limit: '+str(p)
 public=[p for p in (ROOT/'assets').rglob('*') if p.is_file()]+[ROOT/n for n in ['index.html','styles.css','app.js','sphere.js','trajectories.js']]
